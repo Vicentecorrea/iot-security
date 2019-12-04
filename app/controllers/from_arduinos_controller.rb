@@ -1,4 +1,5 @@
 class FromArduinosController < ApplicationController
+  protect_from_forgery
   before_action :set_from_arduino, only: [:show, :edit, :update, :destroy]
 
   # GET /from_arduinos
