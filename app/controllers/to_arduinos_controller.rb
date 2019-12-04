@@ -25,6 +25,10 @@ class ToArduinosController < ApplicationController
   # POST /to_arduinos
   # POST /to_arduinos.json
   def create
+    to_arduinos = ToArduino.all
+    to_arduinos.each do |ta|
+      ta.destroy
+    end
     @to_arduino = ToArduino.new(to_arduino_params)
 
     respond_to do |format|
