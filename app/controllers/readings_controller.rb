@@ -1,4 +1,5 @@
 class ReadingsController < ApplicationController
+  protect_from_forgery
   before_action :set_reading, only: [:show, :edit, :update, :destroy]
 
   # GET /readings
