@@ -3,13 +3,12 @@
 <h1>Readings</h1>
 
 <p>
-  Hola 2!
+  push heroku readings
 </p>
 
 <table>
   <thead>
     <tr>
-      <th>Sensor</th>
       <th>Value</th>
       <th colspan="3"></th>
     </tr>
@@ -18,7 +17,6 @@
   <tbody>
     <% @readings.each do |reading| %>
       <tr>
-        <td><%= reading.sensor %></td>
         <td><%= reading.value %></td>
         <td><%= link_to 'Show', reading %></td>
         <td><%= link_to 'Edit', edit_reading_path(reading) %></td>

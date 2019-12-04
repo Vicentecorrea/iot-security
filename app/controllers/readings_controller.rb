@@ -25,6 +25,7 @@ class ReadingsController < ApplicationController
   # POST /readings
   # POST /readings.json
   def create
+    puts "\n\naca\n\n"
     @reading = Reading.new(reading_params)
 
     respond_to do |format|

@@ -1,10 +1,10 @@
-<%= form_with(model: reading, local: true) do |form| %>
-  <% if reading.errors.any? %>
+<%= form_with(model: setting, local: true) do |form| %>
+  <% if setting.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(reading.errors.count, "error") %> prohibited this reading from being saved:</h2>
+      <h2><%= pluralize(setting.errors.count, "error") %> prohibited this setting from being saved:</h2>
 
       <ul>
-        <% reading.errors.full_messages.each do |message| %>
+        <% setting.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
