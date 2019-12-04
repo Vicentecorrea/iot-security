@@ -1,0 +1,2 @@
+class ToArduino < ApplicationRecord
+end

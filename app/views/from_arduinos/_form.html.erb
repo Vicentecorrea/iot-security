@@ -1,10 +1,10 @@
-<%= form_with(model: setting, local: true) do |form| %>
-  <% if setting.errors.any? %>
+<%= form_with(model: from_arduino, local: true) do |form| %>
+  <% if from_arduino.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(setting.errors.count, "error") %> prohibited this setting from being saved:</h2>
+      <h2><%= pluralize(from_arduino.errors.count, "error") %> prohibited this from_arduino from being saved:</h2>
 
       <ul>
-        <% setting.errors.full_messages.each do |message| %>
+        <% from_arduino.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
