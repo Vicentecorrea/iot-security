@@ -4301,3 +4301,109 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 14ms (Views: 9.2ms | ActiveRecord: 0.6ms | Allocations: 6002)
 
 
+Started GET "/from_arduinos" for 127.0.0.1 at 2019-12-05 09:12:17 -0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by FromArduinosController#index as HTML
+  Rendering from_arduinos/index.html.erb within layouts/application
+  [1m[36mFromArduino Load (0.6ms)[0m  [1m[34mSELECT "from_arduinos".* FROM "from_arduinos"[0m
+  ↳ app/views/from_arduinos/index.html.erb:14
+  Rendered from_arduinos/index.html.erb within layouts/application (Duration: 37.9ms | Allocations: 4599)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 97ms (Views: 79.8ms | ActiveRecord: 5.9ms | Allocations: 14602)
+
+
+Started GET "/from_arduinos/new" for 127.0.0.1 at 2019-12-05 09:12:21 -0300
+Processing by FromArduinosController#new as HTML
+  Rendering from_arduinos/new.html.erb within layouts/application
+  Rendered from_arduinos/_form.html.erb (Duration: 28.8ms | Allocations: 2788)
+  Rendered from_arduinos/new.html.erb within layouts/application (Duration: 75.7ms | Allocations: 3166)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 90ms (Views: 88.2ms | ActiveRecord: 0.0ms | Allocations: 7199)
+
+
+Started POST "/from_arduinos" for 127.0.0.1 at 2019-12-05 09:12:41 -0300
+Processing by FromArduinosController#create as HTML
+  Parameters: {"authenticity_token"=>"joeg0WB6bWUKI3R0+iNH5WTOVhxNp2/JE4RXLKRzajBU/BsmSZyJRwBPj0+PgO3VzmVSwRqsaEcGeZk0sa8d0Q==", "from_arduino"=>{"value"=>"0,20,34,90,1,2"}, "commit"=>"Create From arduino"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/from_arduinos_controller.rb:31:in `block in create'
+  [1m[36mFromArduino Create (25.2ms)[0m  [1m[32mINSERT INTO "from_arduinos" ("value", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["value", "0,20,34,90,1,2"], ["created_at", "2019-12-05 12:12:41.931734"], ["updated_at", "2019-12-05 12:12:41.931734"]]
+  ↳ app/controllers/from_arduinos_controller.rb:31:in `block in create'
+  [1m[35m (22.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/from_arduinos_controller.rb:31:in `block in create'
+Redirected to http://localhost:3000/from_arduinos/3
+Completed 302 Found in 65ms (ActiveRecord: 47.9ms | Allocations: 2929)
+
+
+Started GET "/from_arduinos/3" for 127.0.0.1 at 2019-12-05 09:12:42 -0300
+Processing by FromArduinosController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mFromArduino Load (1.2ms)[0m  [1m[34mSELECT "from_arduinos".* FROM "from_arduinos" WHERE "from_arduinos"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/from_arduinos_controller.rb:68:in `set_from_arduino'
+  Rendering from_arduinos/show.html.erb within layouts/application
+  Rendered from_arduinos/show.html.erb within layouts/application (Duration: 27.3ms | Allocations: 263)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 47ms (Views: 35.4ms | ActiveRecord: 1.8ms | Allocations: 5563)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-05 09:13:18 -0300
+Processing by HomeController#index as HTML
+  [1m[36mToArduino Load (0.5ms)[0m  [1m[34mSELECT "to_arduinos".* FROM "to_arduinos" ORDER BY "to_arduinos"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:3:in `index'
+  [1m[36mFromArduino Load (0.4ms)[0m  [1m[34mSELECT "from_arduinos".* FROM "from_arduinos" ORDER BY "from_arduinos"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:7:in `index'
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 2682)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 12.1ms | ActiveRecord: 5.2ms | Allocations: 11613)
+
+
+Started GET "/from_arduinos/3/edit" for 127.0.0.1 at 2019-12-05 09:13:29 -0300
+Processing by FromArduinosController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mFromArduino Load (0.5ms)[0m  [1m[34mSELECT "from_arduinos".* FROM "from_arduinos" WHERE "from_arduinos"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/from_arduinos_controller.rb:68:in `set_from_arduino'
+  Rendering from_arduinos/edit.html.erb within layouts/application
+  Rendered from_arduinos/_form.html.erb (Duration: 1.9ms | Allocations: 640)
+  Rendered from_arduinos/edit.html.erb within layouts/application (Duration: 14.8ms | Allocations: 913)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 22.2ms | ActiveRecord: 0.5ms | Allocations: 5464)
+
+
+Started PATCH "/from_arduinos/3" for 127.0.0.1 at 2019-12-05 09:13:34 -0300
+Processing by FromArduinosController#update as HTML
+  Parameters: {"authenticity_token"=>"21HwwQWYHfGGITwpMjYWlXD+bzsXFLiAzIRV/Sz0F0E4ryYVUlRu+H0af3PggfCKIyyR5pcWQnBRovla/KSMOA==", "from_arduino"=>{"value"=>"1,20,34,90,0,2"}, "commit"=>"Update From arduino", "id"=>"3"}
+  [1m[36mFromArduino Load (0.9ms)[0m  [1m[34mSELECT "from_arduinos".* FROM "from_arduinos" WHERE "from_arduinos"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/from_arduinos_controller.rb:68:in `set_from_arduino'
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/from_arduinos_controller.rb:45:in `block in update'
+  [1m[36mFromArduino Update (0.6ms)[0m  [1m[33mUPDATE "from_arduinos" SET "value" = $1, "updated_at" = $2 WHERE "from_arduinos"."id" = $3[0m  [["value", "1,20,34,90,0,2"], ["updated_at", "2019-12-05 12:13:34.401950"], ["id", 3]]
+  ↳ app/controllers/from_arduinos_controller.rb:45:in `block in update'
+  [1m[35m (15.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/from_arduinos_controller.rb:45:in `block in update'
+Redirected to http://localhost:3000/from_arduinos/3
+Completed 302 Found in 32ms (ActiveRecord: 17.6ms | Allocations: 3282)
+
+
+Started GET "/from_arduinos/3" for 127.0.0.1 at 2019-12-05 09:13:34 -0300
+Processing by FromArduinosController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mFromArduino Load (0.8ms)[0m  [1m[34mSELECT "from_arduinos".* FROM "from_arduinos" WHERE "from_arduinos"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/from_arduinos_controller.rb:68:in `set_from_arduino'
+  Rendering from_arduinos/show.html.erb within layouts/application
+  Rendered from_arduinos/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 98)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 10.2ms | ActiveRecord: 0.8ms | Allocations: 4524)
+
+
+Started GET "/" for 127.0.0.1 at 2019-12-05 09:13:38 -0300
+Processing by HomeController#index as HTML
+  [1m[36mToArduino Load (0.4ms)[0m  [1m[34mSELECT "to_arduinos".* FROM "to_arduinos" ORDER BY "to_arduinos"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:3:in `index'
+  [1m[36mFromArduino Load (0.3ms)[0m  [1m[34mSELECT "from_arduinos".* FROM "from_arduinos" ORDER BY "from_arduinos"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:7:in `index'
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 699)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 9.7ms | ActiveRecord: 0.7ms | Allocations: 6003)
+
+
