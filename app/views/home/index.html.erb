@@ -1,0 +1,104 @@
+
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+<p id="notice"><%= notice %></p>
+
+<h1>Home</h1>
+
+
+
+<div class="container">
+    <div >
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="jumbotron col-md-6">
+          <%= form_for :to_arduino, :url => {:controller => "to_arduinos", :action => "create"} do |ta| %>
+            <div class="row">
+              Alarm &nbsp;
+              <%= ta.select(:x, options_for_select([["Off", 0], ["On", 1]]), {}, class:"form-control") %>
+            </div>
+            <br>
+            <div class="row">
+              Theshold &nbsp;
+              <%= ta.text_field :y, class:"form-control", placeholder:"Threshold", required:true%>
+            </div>
+            <br>
+            <div class="row">
+              NSP &nbsp;
+              <%= ta.select(:z, options_for_select([["Off", 0], ["On", 1]]), {}, class:"form-control")%>
+            </div>
+            <br>
+            <div class="row">
+              <%= ta.submit value:"Submit", class: "btn btn-success" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <h4>Sent </h4>
+        <div class="col">
+          <b>Alarm</b>
+          <% if @alarm == "1" %>
+            <%= "activated" %>
+          <% else %>
+            <%= "disabled" %>
+          <% end %>
+        </div>
+        <div class="col">
+          <b>Threshold</b> <%= @threshold %>
+        </div>
+        <div class="col">
+          <b>NFC</b>
+          <% if @nfc == "1" %>
+            <%= "activated" %>
+          <% else %>
+            <%= "disabled" %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="row">
+        <h4>Received</h4>
+        <div class="col">
+          <b>Alarm</b>
+          <% if @from_alarm == "1" %>
+            <%= "activated" %>
+          <% else %>
+            <%= "disabled" %>
+          <% end %>
+        </div>
+        <div class="col">
+          <b>Threshold</b> <%= @from_threshold %>
+        </div>
+        <div class="col">
+          <b>Temperature</b>
+          <%= @from_temperature %>
+        </div>
+        <div class="col">
+          <b>Humidity</b>
+          <%= @from_humidity %>
+        </div>
+        <div class="col">
+          <b>Smoke</b>
+          <% if @from_smoke == "1" %>
+            <%= "activated" %>
+          <% else %>
+            <%= "disabled" %>
+          <% end %>
+        </div>
+        <div class="col">
+          <b>Water Level</b>
+            <%= @from_water_level %>
+        </div>
+      </div>
+    </div>
+</div>
+
+<br>
+
+</body>

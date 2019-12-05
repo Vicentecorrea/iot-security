@@ -29,11 +29,12 @@ class ToArduinosController < ApplicationController
     to_arduinos.each do |ta|
       ta.destroy
     end
-    @to_arduino = ToArduino.new(to_arduino_params)
+    #@to_arduino = ToArduino.new(to_arduino_params)
+    @to_arduino = ToArduino.new(value: to_arduino_params[:x] + "," + to_arduino_params[:y] + "," + to_arduino_params[:z])
 
     respond_to do |format|
       if @to_arduino.save
-        format.html { redirect_to @to_arduino, notice: 'To arduino was successfully created.' }
+        format.html { redirect_to home_index_path, notice: 'To arduino was successfully created.' }
         format.json { render :show, status: :created, location: @to_arduino }
       else
         format.html { render :new }
@@ -74,6 +75,7 @@ class ToArduinosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def to_arduino_params
-      params.require(:to_arduino).permit(:value)
+      #params.require(:to_arduino).permit(:value)
+      params.require(:to_arduino).permit(:x, :y, :z)
     end
 end

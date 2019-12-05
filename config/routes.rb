@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'home/index'
+  get 'home/send_params'
   resources :to_arduinos
   resources :from_arduinos
   root 'from_arduinos#index'
